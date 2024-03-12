@@ -1,0 +1,59 @@
+<section class="">
+<form [formGroup]="rigisterforms" (ngSubmit)="registerforms_fun()">
+<div>
+    <label for="name">name</label>
+    <input formControlName="name" class="form-control " id="name">
+    <div class="alert alert-danger"
+     *ngIf="rigisterforms.get('name')?.errors
+    && rigisterforms.get('name')?.touched">
+    <p *ngIf="rigisterforms.get('name')?.getError('required')">name is required</p>
+    <p *ngIf="rigisterforms.get('name')?.getError('minlength')">name is minlength 3 charses</p>
+    <p *ngIf="rigisterforms.get('name')?.getError('maxlength')">name is maxlgnth is 20</p>
+</div>
+</div>
+<div>
+    <label for="email">email</label>
+    <input formControlName="email" class="form-control " id="email">
+   <div class="alert alert-danger " *ngIf="rigisterforms.get('email')?.touched
+    && rigisterforms.get('email')?.errors">
+    <p *ngIf="rigisterforms.get('email')?.getError('required')">email is required</p>
+</div>
+</div>
+<div>
+    <label for="password">password</label>
+    <input formControlName="password" class="form-control " id="password">
+    <div class="alert alert-danger " *ngIf="rigisterforms.get('password')?.touched
+    && rigisterforms.get('password')?.errors">
+    <p *ngIf="rigisterforms.get('password')?.getError('required')">password is required</p>
+</div>
+</div>
+
+<div>
+    <label for="rePassword">rePassword</label>
+    <input formControlName="rePassword" class="form-control " id="rePassword">
+    <div class="alert alert-danger " *ngIf="rigisterforms.get('rePassword')?.touched
+    && rigisterforms.get('rePassword')?.errors">
+    <p *ngIf="rigisterforms.get('rePassword')?.getError('required')">rePassword is required</p>
+    <p *ngIf="rigisterforms.get('rePassword')?.getError('mismatch')">hamada</p>
+
+</div>
+</div>
+
+<div>
+    <label for="phone">phone</label>
+    <input formControlName="phone" class="form-control " id="phone">
+    <div class="alert alert-danger " *ngIf="rigisterforms.get('phone')?.touched
+    && rigisterforms.get('phone')?.errors">
+    <p *ngIf="rigisterforms.get('phone')?.getError('required')">phone is required</p>
+</div>
+</div>
+<div class="alert alert-danger"*ngIf="msgerror">
+<p>{{msgerror}}</p>
+</div>
+<button [disabled]="rigisterforms.invalid" class="btn btn-info">
+    <i *ngIf="isloding" class="fas fa-spinner fa-spin"></i>
+    submit</button>
+
+</form>
+
+</section>

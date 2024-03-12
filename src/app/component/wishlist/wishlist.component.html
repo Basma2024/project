@@ -1,0 +1,30 @@
+<section class="mx-auto w-75 bg-main-light p-3 rounded-3 my-3 container">
+<div>
+<h1>My wish List </h1>
+<div class="row" *ngFor="let item of dataheart">
+   
+<div class="col-md-2">
+    <img [src]="item.imageCover" class="w-100" alt="">
+</div>
+<div class="col-md-7">
+    <h3>{{item.title |buy}}</h3>
+    <p class=>{{item.price}} EGP</p>
+    <button (click)="removeitem(item.id)" class="btn text-danger">
+        <i class="fa-regular fa-trash-can "></i> Remove</button>
+
+</div>
+    
+<div class="col-md-2">
+    <button class="btn btn-info" (click)="addtocardd(item.id)" > add to card</button>
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+
+</section>

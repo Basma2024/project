@@ -1,0 +1,33 @@
+<!-- catgory -->
+<section class="container">
+    <div class="row catgory">
+        <div  class="col-md-4 my-3 "(click)="Subcategory(item._id)"  *ngFor="let item of category">
+            <div class="card caedh product">
+                <img [src]="item.image" class="card-img-top" [alt]="item.name">
+                <div class="card-body">
+                  <h5 class="card-title  text-main text-center ">{{item.name}}</h5>
+               </div>
+              </div>
+        </div>
+    
+    
+        
+    </div>
+</section>
+
+<!-- subcatgory -->
+<section class="mt-5 ">
+<div class="row border-4 justify-content-center align-items-center ">
+<div class="col-md-3 product border border-4 m-2 "*ngFor="let product of Subcategoryitem">
+<h3> {{product.name}} </h3>
+</div>
+
+</div>
+
+
+</section>
+
+
+
+
+

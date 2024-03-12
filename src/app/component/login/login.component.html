@@ -1,0 +1,34 @@
+<section>
+    <form [formGroup]="loginform" (ngSubmit)="loginform_fun()">
+    <div>
+        <label for="email">email</label>
+        <input 
+        formControlName="email" 
+        class="form-control " 
+        id="email">
+
+       <div class="alert alert-danger "
+        *ngIf="loginform.get('email')?.touched
+        && loginform.get('email')?.errors">
+        <p *ngIf="loginform.get('email')?.getError('required')">email is required</p>
+    </div>
+    </div>
+    <div>  
+        <label for="password">password</label>
+        <input formControlName="password" class="form-control " id="password">
+        <div class="alert alert-danger " *ngIf="loginform.get('password')?.touched
+        && loginform.get('password')?.errors">
+        <p *ngIf="loginform.get('password')?.getError('required')">password is required</p>
+    </div>
+    </div>
+
+    <div class="alert alert-danger"*ngIf="msgerror">
+    <p>{{msgerror}}</p>
+    </div>
+    <button [disabled]="loginform.invalid" class="btn btn-info">
+        <i *ngIf="isloding" class="fas fa-spinner fa-spin"></i>
+        submit</button>
+    
+    </form>
+    <p class="cursor-pointer" routerLink="/forgetpass"> forget your password ?</p>
+    </section>
